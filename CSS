@@ -1,0 +1,160 @@
+/* --- VARIÁVEIS (A Estética "Dark Future") --- */
+:root {
+    --bg-color: #050505;       /* Preto quase absoluto */
+    --card-bg: #121212;        /* Cinza muito escuro */
+    --border-color: #2a2a2a;   /* Bordas subtis */
+    --primary: #9d4edd;        /* Roxo Elétrico */
+    --primary-glow: rgba(157, 78, 221, 0.4); /* O brilho do roxo */
+    --text-main: #ffffff;
+    --text-muted: #a1a1aa;     /* Cinza para textos secundários */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* --- ANIMAÇÕES --- */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.anime { animation: fadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.4s; }
+
+/* --- HERO SECTION (Topo) --- */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    background: radial-gradient(circle at center, #1a0b2e 0%, #050505 60%);
+}
+
+.profile-container {
+    margin-bottom: 30px;
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 50px var(--primary-glow);
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+}
+
+.profile-img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    border-color: var(--primary);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #fff, #a1a1aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero h2 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    max-width: 700px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin: 0 auto;
+}
+
+/* --- FILTROS (Estilo Cápsula) --- */
+.filtros-wrapper {
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.filtros {
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(15px);
+    padding: 8px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filtros a {
+    text-decoration: none;
+    color: #ccc;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.filtros a:hover { color: white; background: rgba(255, 255, 255, 0.05); }
+
+.filtros a.active {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 0 20px var(--primary-glow);
+    transform: scale(1.05);
+}
+
+/* --- GRID --- */
+.galeria {
+    max-width: 1400px;
+    margin: 80px auto;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-sha
